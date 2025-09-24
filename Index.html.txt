@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>New Mexico Kitchen — Local NM Recipes</title>
+  <meta name="description" content="New Mexico Kitchen — authentic New Mexico recipes, chile-forward favorites, and simple home cooking from Albuquerque and beyond." />
+  <meta name="theme-color" content="#006747" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="New Mexico Kitchen — Local NM Recipes" />
+  <meta property="og:description" content="Authentic New Mexico recipes: green chile, red chile, sopaipillas, and more — with clear instructions and printable recipes." />
+  <meta property="og:image" content="green-chile.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.example/" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="New Mexico Kitchen — Local NM Recipes" />
+  <meta name="twitter:description" content="Authentic New Mexico recipes and easy home-cooking instructions." />
+  <meta name="twitter:image" content="green-chile.jpg" />
+
+  <style>
+    :root{
+      --accent:#006747; /* deep chile green */
+      --accent-2:#c0392b; /* red chile */
+      --muted:#6b6b6b;
+      --max-width:1100px;
+      --radius:10px;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#222;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:#fff;line-height:1.45}
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#48c78e);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .brand h1{font-size:1.25rem;margin:0}
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;margin:12px 0}
+    .hero .lead{padding:26px;border-radius:var(--radius);background:linear-gradient(180deg,#fff, #fcfcfc);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    .hero h2{margin:0 0 10px 0;color:var(--accent)}
+    .hero p{margin:0 0 12px 0;color:var(--muted)}
+    .cta{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;border:0;cursor:pointer}
+    .btn.alt{background:#fff;color:var(--accent);border:1px solid #e6e6e6}
+    .subscribe{display:flex;gap:8px;margin-top:12px}
+    input[type="email"]{padding:10px;border-radius:8px;border:1px solid #ddd;flex:1}
+    .card{border-radius:12px;overflow:hidden;border:1px solid #eee;background:#fff}
+    .card img{width:100%;height:200px;object-fit:cover;display:block}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px}
+    .meta{padding:12px}
+    .meta h3{margin:0 0 8px 0;font-size:1.05rem}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .tag{background:#f5f7f6;border-radius:6px;padding:6px 8px;font-size:0.85rem;color:var(--muted)}
+    footer{padding:30px 0;text-align:center;color:var(--muted);font-size:.95rem}
+    .searchbar{margin-top:8px;display:flex;gap:8px}
+    .searchbar input{flex:1;padding:10px;border-radius:8px;border:1px solid #ddd}
+    /* modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:20px}
+    .modal.open{display:flex}
+    .modal .panel{background:white;border-radius:12px;max-width:800px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 20px 40px rgba(0,0,0,.25);padding:20px}
+    .panel .close{float:right;background:#eee;border:0;padding:6px 10px;border-radius:6px;cursor:pointer}
+    .recipe-meta{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0;color:var(--muted)}
+    .ingredients, .steps{margin-top:8px;padding:0 0 12px 0}
+    ul{margin:0;padding-left:18px}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .hero img{display:none}
+    }
+  </style>
+
+  <!-- JSON-LD structured data for the page -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"New Mexico Kitchen",
+    "url":"https://yourdomain.example/",
+    "description":"Authentic New Mexico recipes — green chile, red chile, sopaipillas, and more."
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">NM</div>
+        <div>
+          <h1>New Mexico Kitchen</h1>
+          <div style="color:var(--muted);font-size:.9rem">Local recipes & chile-forward home cooking</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#recipes">Recipes</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-label="Intro">
+      <div class="lead card" role="region" aria-labelledby="hero-title">
+        <h2 id="hero-title">Taste of New Mexico — simple recipes you’ll actually make</h2>
+        <p>Easy-to-follow, locally inspired recipes: roasted green chile, red chile pork, sopaipillas and more. Recipes are printable and scaled for home cooks.</p>
+
+        <div class="searchbar">
+          <input id="search" placeholder="Search recipes, e.g., 'green chile' or 'sopaipilla'">
+          <button class="btn" id="searchBtn">Search</button>
+        </div>
+
+        <div class="cta">
+          <button class="btn" id="viewAll">View All Recipes</button>
+          <button class="btn alt" id="printBtn">Print Recipe</button>
+        </div>
+
+        <div style="margin-top:14px">
+          <form id="subscribeForm" class="subscribe" onsubmit="event.preventDefault(); alert('Thanks — subscription demo only');">
+            <input type="email" id="email" placeholder="Your email for new recipes" required>
+            <button class="btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="overflow:hidden">
+          <img src="green-chile.jpg" alt="Green chile stew in a bowl">
+          <div style="padding:14px">
+            <strong style="color:var(--accent)">Featured</strong>
+            <h3 style="margin:.3rem 0 0 0">Roasted Green Chile Stew</h3>
+            <div style="color:var(--muted);margin-top:6px">Classic, spicy, and perfect with warm tortillas.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section id="recipes">
+        <h2 style="color:var(--accent);margin-top:18px">Recipes</h2>
+        <div class="grid" id="recipeGrid">
+          <!-- Recipe card 1 -->
+          <article class="card recipe-card" data-title="Roasted Green Chile Stew" data-tags="soup,green chile,stew">
+            <img src="green-chile.jpg" alt="Green chile stew">
+            <div class="meta">
+              <div class="tags"><div class="tag">Green Chile</div><div class="tag">Soup</div></div>
+              <h3>Roasted Green Chile Stew</h3>
+              <p style="color:var(--muted)">Hearty stew with roasted Hatch green chile and tender pork.</p>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <button class="btn open-recipe">View Recipe</button>
+                <button class="btn alt" onclick="copyLink('green-chile')">Share</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe card 2 -->
+          <article class="card recipe-card" data-title="Sopaipillas" data-tags="dessert,frybread">
+            <img src="sopaipillas.jpg" alt="Sopaipillas on a plate">
+            <div class="meta">
+              <div class="tags"><div class="tag">Fry Bread</div><div class="tag">Dessert</div></div>
+              <h3>Sopaipillas</h3>
+              <p style="color:var(--muted)">Puffy, golden fry-bread — perfect with honey or savory fillings.</p>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <button class="btn open-recipe">View Recipe</button>
+                <button class="btn alt" onclick="copyLink('sopaipillas')">Share</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe card 3 -->
+          <article class="card recipe-card" data-title="Red Chile Pork" data-tags="red chile,entree,pork">
+            <img src="red-chile-pork.jpg" alt="Red chile pork">
+            <div class="meta">
+              <div class="tags"><div class="tag">Red Chile</div><div class="tag">Pork</div></div>
+              <h3>Red Chile Pork</h3>
+              <p style="color:var(--muted)">Slow-simmered pork in a smoky red chile sauce — great for burritos.</p>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <button class="btn open-recipe">View Recipe</button>
+                <button class="btn alt" onclick="copyLink('red-chile-pork')">Share</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" style="margin-top:28px">
+        <h2 style="color:var(--accent)">About</h2>
+        <p style="color:var(--muted)">New Mexico Kitchen celebrates chile-forward cooking and the regional flavors of New Mexico. Recipes are tested for home cooks and include substitutions for heat and spice level.</p>
+      </section>
+
+      <section id="contact" style="margin-top:24px;padding-bottom:24px">
+        <h2 style="color:var(--accent)">Contact</h2>
+        <p style="color:var(--muted)">Questions, recipe ideas, or corrections? Email: <a href="mailto:hello@yourdomain.example">hello@yourdomain.example</a></p>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> New Mexico Kitchen — Recipes from the Land of Enchantment</div>
+    </footer>
+  </div>
+
+  <!-- Modal for recipe details -->
+  <div class="modal" id="modal" role="dialog" aria-hidden="true">
+    <div class="panel" role="document">
+      <button class="close" id="closeModal">Close</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple search
+    const searchInput = document.getElementById('search');
+    document.getElementById('searchBtn').addEventListener('click', () => {
+      const q = searchInput.value.toLowerCase().trim();
+      Array.from(document.querySelectorAll('.recipe-card')).forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const tags = card.dataset.tags.toLowerCase();
+        const show = q === '' || title.includes(q) || tags.includes(q);
+        card.style.display = show ? 'block' : 'none';
+      });
+    });
+
+    // recipe data (could be moved to JSON or CMS)
+    const recipes = {
+      "Roasted Green Chile Stew": {
+        id: "green-chile",
+        title: "Roasted Green Chile Stew",
+        image: "green-chile.jpg",
+        servings: "6",
+        time: "1 hr 20 min",
+        ingredients: [
+          "2 lbs pork shoulder, cubed",
+          "4 cups roasted green chiles, chopped (mild or hot, to taste)",
+          "1 large onion, diced",
+          "3 cloves garlic, minced",
+          "4 cups chicken broth",
+          "2 tbsp vegetable oil",
+          "Salt and pepper to taste",
+          "1 tsp ground cumin (optional)"
+        ],
+        steps: [
+          "Season pork with salt and pepper. In a large pot, heat oil over medium-high and brown pork on all sides; set aside.",
+          "Sauté onion until translucent, add garlic and cook 1 minute.",
+          "Return pork to pot, add green chiles and chicken broth. Bring to a boil, then reduce heat and simmer 50–60 minutes until pork is tender.",
+          "Adjust seasoning with salt, pepper, and cumin. Serve hot with warm tortillas."
+        ],
+        notes: "Use roasted Hatch chiles when available. For milder stew, remove ribs and seeds from chiles."
+      },
+
+      "Sopaipillas": {
+        id: "sopaipillas",
+        title: "Sopaipillas",
+        image: "sopaipillas.jpg",
+        servings: "8",
+        time: "45 min",
+        ingredients: [
+          "2 cups all-purpose flour",
+          "1 tbsp baking powder",
+          "1 tsp salt",
+          "2 tbsp shortening or butter",
+          "2/3 cup warm water",
+          "Oil for frying",
+          "Honey (for serving)"
+        ],
+        steps: [
+          "Mix flour, baking powder, and salt. Cut in shortening until mixture is crumbly.",
+          "Add warm water a little at a time and knead until smooth. Let rest 10 minutes.",
+          "Roll dough out thin and cut into squares or triangles.",
+          "Heat oil in deep pan to 350°F (175°C). Fry dough pieces until puffed and golden on both sides. Drain on paper towels.",
+          "Serve warm with honey."
+        ],
+        notes: "Don't overcrowd the pan when frying to allow them to puff up fully."
+      },
+
+      "Red Chile Pork": {
+        id: "red-chile-pork",
+        title: "Red Chile Pork",
+        image: "red-chile-pork.jpg",
+        servings: "6",
+        time: "2 hrs (including simmer)",
+        ingredients: [
+          "2 lbs pork shoulder",
+          "1 cup red chile sauce (homemade or store-bought New Mexico red chile)",
+          "1 medium onion, sliced",
+          "3 cloves garlic, minced",
+          "2 cups beef or chicken broth",
+          "Salt to taste",
+          "2 tbsp vegetable oil"
+        ],
+        steps: [
+          "Heat oil in a pot and brown pork. Remove and set aside.",
+          "Sauté onion, add garlic and cook briefly.",
+          "Return pork, add red chile sauce and broth. Stir to combine.",
+          "Simmer gently 90 minutes until pork shreds easily.",
+          "Shred pork in sauce and serve in burritos, tacos, or over rice."
+        ],
+        notes: "For deeper flavor, toast dried red chile and blend with stock before adding."
+      }
+    };
+
+    // Modal open/close & populate
+    function openModal(recipeTitle){
+      const r = recipes[recipeTitle];
+      if(!r) return;
+      const html = `
+        <h2 style="color:var(--accent)">${r.title}</h2>
+        <img src="${r.image}" alt="${r.title}" style="width:100%;max-height:300px;object-fit:cover;border-radius:8px;margin-top:8px">
+        <div class="recipe-meta"><div>Serves: <strong>${r.servings}</strong></div><div>Time: <strong>${r.time}</strong></div></div>
+        <div><strong>Ingredients</strong>
+          <div class="ingredients"><ul>${r.ingredients.map(i=>`<li>${i}</li>`).join('')}</ul></div>
+        </div>
+        <div><strong>Steps</strong>
+          <div class="steps"><ol>${r.steps.map(s=>`<li style="margin-bottom:8px">${s}</li>`).join('')}</ol></div>
+        </div>
+        <div style="color:var(--muted);margin-top:8px"><em>${r.notes}</em></div>
+      `;
+      document.getElementById('modalContent').innerHTML = html;
+      document.getElementById('modal').classList.add('open');
+      document.getElementById('modal').setAttribute('aria-hidden','false');
+    }
+
+    document.querySelectorAll('.open-recipe').forEach((btn, idx) => {
+      btn.addEventListener('click', (e) => {
+        const card = e.target.closest('.recipe-card');
+        openModal(card.dataset.title);
+      });
+    });
+
+    document.getElementById('closeModal').addEventListener('click', () => {
+      document.getElementById('modal').classList.remove('open');
+      document.getElementById('modal').setAttribute('aria-hidden','true');
+    });
+
+    // print button prints the open recipe or page
+    document.getElementById('printBtn').addEventListener('click', () => {
+      if(document.getElementById('modal').classList.contains('open')){
+        window.print();
+      } else {
+        window.print();
+      }
+    });
+
+    document.getElementById('viewAll').addEventListener('click', () => {
+      window.location.hash = '#recipes';
+    });
+
+    // copy link function (demo)
+    function copyLink(id){
+      const url = window.location.href.split('#')[0] + '#' + id;
+      navigator.clipboard?.writeText(url).then(()=>alert('Link copied!'));
+    }
+
+    // Optional: add deep-link support so #green-chile opens that recipe
+    window.addEventListener('load', () => {
+      const anchor = location.hash.replace('#','');
+      if(anchor){
+        // find recipe by id
+        for(const k in recipes){
+          if(recipes[k].id === anchor) openModal(k);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
